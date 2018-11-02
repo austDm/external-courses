@@ -1,0 +1,35 @@
+table {
+  border-collapse: collapse;
+  width: 480px;
+  height: 160px;
+  margin: 20px auto;
+}
+
+td {
+  border: 1px solid black;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  width: 160px;
+}
+
+label {
+  display: block;
+  height: 157px;
+  padding: 0px;
+}
+
+input {
+  display: none;
+}
+
+input:checked + label:after {
+  content: '\2658';
+  color: red;
+  font-size: 120px;
+  position: absolute;
+  left: 18px;
+  top: 4px;
+  text-align: center;
+  line-height: 150px;
+}
