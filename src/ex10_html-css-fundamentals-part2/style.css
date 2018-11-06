@@ -458,13 +458,11 @@ and (max-width : 1499px) {
     position: relative;
   }
 
-  .slider {
-    display: none;
-  }
-
+  .slider,
   .contacts {
     display: none;
   }
+
   /*HEADER START*/
 
   header {
