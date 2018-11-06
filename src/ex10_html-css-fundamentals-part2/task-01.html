@@ -1,0 +1,113 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="author" content="Aust D.S.">
+		<meta name="description" content="task-01, Forms">
+		<title>Task-01</title>
+	</head>
+	<body>
+		<form action="http://httpbin.org/" method="GET" name="personal_data_form">
+			<fieldset>
+				<legend>Personal data</legend>
+				
+				<label>
+					Surname
+					<input type="text" name="surname">
+				</label><br><br>
+				<label>
+					First name 
+					<input type="text" name="firstName">
+				</label><br><br>
+				<label>
+					Middle name 
+					<input type="text" name="middleName">
+				</label><br><br>
+				
+				<span>You are</span>
+				<label>
+					<input type="radio" name="gender" value="male">
+					male
+				</label>
+				<label>
+				<input type="radio" name="gender" value="female">
+					female
+				</label><br><br>
+			 
+				<label>
+					Age 
+					<input type="number" min="18" max="101" pattern="[0-9]{,3}">
+				</label><br><br>
+				
+				<div>
+					Country of Residence
+					<select name="country">
+						<option value=""></option>
+						<option value="Russia">Russia</option>
+						<option value="Ukraine">Ukraine</option>
+						<option value="Poland">Poland</option>
+					</select>
+				</div><br> 
+				
+				<span>City</span>
+				<label>
+					<input type="checkbox" name="city" value="Ryazan">
+					Ryazan
+				</label>
+				<label>
+					<input type="checkbox" name="city" value="Moscow">
+					Moscow
+				</label><br><br>
+				
+				<span>Photography</span>
+				<input type="file" name="file"><hr>
+				
+				<div>
+					Title
+					<select name="occupation" size="8">
+						<optgroup label="Technologies">
+							<option value="Wm">Web master</option>
+							<option value="DA">Database Administrator</option>
+							<option value="">Computer-aided design</option>
+						<optgroup label="Finance">
+							<option value="Ep">Economic planning</option>
+							<option value="Ma">Management accounting</option>
+							<option value="Bp">Budgeting and planning</option>
+					</select>
+				</div><br>
+				
+				<span>Salary</span>
+				<input type="range" name="salary"><br><br>
+				
+				<textarea 
+					name="bio" 
+					placeholder="Tell us about yourself..." 
+					cols="50" rows="10"
+				></textarea>
+			</fieldset>
+				
+			<fieldset>
+				<legend>Contact information</legend><br>
+			
+				<label>
+					Site
+					<input type="url" name="Site">
+				</label><br><br>
+				<label>
+					Email 
+					<input type="email" name="Email">
+				</label><br><br>
+				<label>
+					Phone 
+					<input type="tel" name="Phone">
+				</label><br><br>
+			</fieldset><br>
+			
+			<span>Password</span>
+			<input type="password" name="pass" required><br><br>
+			<input type="submit">
+			<input type="reset">
+		</form>  
+	</body>
+</html>
