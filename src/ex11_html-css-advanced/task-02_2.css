@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #282923;
+}
+
+.ball {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  border-radius: 50%;
+  background: linear-gradient(45deg, #FF7E28, #D5ED7D);
+  animation: fun 3s infinite linear;
+}
+
+@keyframes fun {
+  12.5% {transform: translate(-100px);}
+  25% {transform: translate(-115px) scale(0.7, 1.2);}
+  37.5% {transform: translate(-100px);}
+  62.5% {transform: translate(100px);}
+  75% {transform: translate(115px) scale(0.7, 1.2) ;}
+  87.5% {transform: translate(100px)}
+
+}
+.block {
+  width: 100px;
+  height: 300px;
+  position: absolute;
+  background: linear-gradient(45deg, #41899D, #69DEFF);
+}
+
+.block1 {
+  top: calc(50% - 150px);
+  left: calc(50% - 250px);
+}
+
+.block2 {
+  top: calc(50% - 150px);
+  left: calc(50% + 150px);
+}

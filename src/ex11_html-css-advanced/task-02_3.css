@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #282923;
+}
+
+.ball {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #FFFF28, #FF2828);
+  animation: presas 5s infinite;
+}
+
+.ball_step {
+  top: calc(50% - 100px);
+  left: calc(50% - 50px);
+  animation-timing-function: steps(1);
+}
+
+.ball_smooth {
+  top: calc(50% + 100px);
+  left: calc(50% - 50px);
+  animation-timing-function: linear;
+}
+
+@keyframes presas {
+  16.7% {
+    border-radius: 0;  
+  }
+
+  33.3% {
+    background: linear-gradient(180deg, #FFFF28, #FF2828);
+  }
+
+  50% {
+    width: 200px;
+    height: 50px;
+    transform: scale(0.5, 1.2) skew(30deg, 20deg);
+  }
+  
+  66.7% {
+    transform: rotateZ(45deg);
+  }
+  
+  83.3% {
+    background: linear-gradient(180deg, #00FFA9, #FF2828);
+  }
+}

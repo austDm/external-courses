@@ -1,0 +1,52 @@
+body {
+  background: #282923;
+}
+
+div {
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #28ED23;
+}
+
+.one {
+  animation: fly1 2s infinite linear;
+}
+
+.two {
+  animation: fly2 2s infinite linear;
+  animation-delay: 0.5s;
+}
+
+.three {
+  animation: fly3 2s infinite linear;
+  animation-delay: 1s;
+}
+
+.four {
+  animation: fly4 2s infinite linear;
+  animation-delay: 1.5s;
+}
+
+@keyframes fly1 {
+  15% {transform:translate(-30px, -30px);
+  width: 30px; height: 30px;}
+}
+
+@keyframes fly2 {
+  15% {transform:translate(-30px, 30px);
+  width: 30px; height: 30px; }
+}
+
+@keyframes fly3 {
+  15% {transform:translate(30px, -30px);
+  width: 30px; height: 30px; }
+}
+
+@keyframes fly4 {
+  15% {transform:translate(30px, 30px);
+  width: 30px; height: 30px; }
+}

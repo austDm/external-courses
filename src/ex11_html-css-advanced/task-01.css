@@ -1,0 +1,18 @@
+img {
+  display: block;
+  width: 700px;
+  margin: 20px auto ;
+}
+
+#img1 {
+  -webkit-clip-path: circle(35% at 50% 50%);
+          clip-path: circle(35% at 50% 50%);
+}
+
+#img2 {
+  -webkit-mask-image: url(https://avatanplus.com/files/resources/mid/5bc1ffb8810fd1666dcee8d1.png);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: 50% 70%; 
+  -webkit-mask-size: 450px;
+}
+

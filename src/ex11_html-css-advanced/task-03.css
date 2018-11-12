@@ -1,0 +1,115 @@
+* {
+  outline: none;
+  box-sizing: border-box;
+}
+
+.mid {
+  width: 350px;
+  position: relative;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+form {
+  width: 370px;
+  background: #fff;
+  margin: 20px auto;
+  padding-left: 20px;
+  position: relative;
+}
+
+input {
+  border: none;
+  height: 45px;
+  padding-top: 15px;
+  font: 16px Arial, sans-serif;
+  line-height: 30px;
+  color: #3F4040;
+  caret-color: #0959CE;
+}
+
+#title {
+  width: 100%;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+#price {
+  width: 110px;
+  border-right: 1px solid #E5E5E5;
+}
+
+#location {
+  width: 220px;
+  position: absolute;
+  left: 120px;
+}
+
+#desc {
+  width: 100%;overflow: hidden;
+}
+
+input::-webkit-input-placeholder,
+input::placeholder {
+  color: #C3C3C3;
+}
+
+label {
+  font: 9px arial, sans-serif;
+  color: #C3C3C3;
+   position: absolute;
+  visibility: hidden;
+}
+
+input:valid:focus + label {
+  color: #0959CE;
+  transition: top 0.5s;
+  visibility: visible;
+}
+
+input:valid + label {
+  color: #C3C3C3;
+  visibility: visible
+}
+
+#title:invalid + label {
+   top: 10px;
+  left: 20px;  
+}
+
+#title:valid:focus + label,
+#title:valid + label{
+  top: 5px;
+  left: 20px;
+}
+
+#price:invalid + label {
+   top: 10px;
+  left: 0px;  
+}
+
+#price:valid:focus + label,
+#price:valid + label{
+  top: 5px;
+  left: 0px;
+}
+
+#location:invalid + label {
+   top: 10px;
+  left: 120px;  
+}
+
+#location:valid:focus + label,
+#location:valid + label{
+  top: 5px;
+  left: 120px;
+}
+
+#desc:invalid + label {
+   top: 100px;
+  left: 20px;  
+}
+
+#desc:valid:focus + label,
+#desc:valid + label{
+  top: 95px;
+  left: 20px;
+}
