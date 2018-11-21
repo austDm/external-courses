@@ -1,5 +1,6 @@
 'use strict'
 function Hangman(word) {
+  word = word.toLowerCase();
   var arrWord = [];
   var i;
   for (i = 0; i < word.length; i++) {
@@ -10,6 +11,7 @@ function Hangman(word) {
   this.wrongSymbols = [];
   
   this.guess = function (letter) {
+    letter = letter.toLowerCase();
     if (this.errors) {
       if (word.indexOf(letter) === -1) {
         this.errors -= 1;
@@ -49,7 +51,7 @@ function Hangman(word) {
   }
 
   this.startAgain = function (newWord) {
-    word = newWord;
+    word = newWord.toLowerCase();
     var arrWord = [];
     var i;
     for (i = 0; i < word.length; i++) {
@@ -65,4 +67,4 @@ function Hangman(word) {
     console.log(this.arrWord.join('') + ' | errors left ' + this.errors);
   }
 }
-module.exports = Hangman;
+module.exports = new Hangman('webpurple');

@@ -57,8 +57,9 @@ var Calculator = function (){
       return this;
     },
 
-    fetchData: function (callback, arg){
-      setTimeout(callback, 1000, arg);
+    fetchData: function (callback){
+      result = 500;
+      setTimeout(callback, 1000, result);
       return this;
     }
   }
