@@ -1,16 +1,13 @@
 'use strict'
 function Hangman(word) {
   word = word.toLowerCase();
-  var arrWord = [];
-  var i;
-  for (i = 0; i < word.length; i++) {
-    arrWord[i] = '_';
-  }
+  var arrWord = new Array(word.length).fill('_');
   this.arrWord = arrWord;
   this.errors = 6;
   this.wrongSymbols = [];
   
   this.guess = function (letter) {
+    var i;
     letter = letter.toLowerCase();
     if (this.errors) {
       if (word.indexOf(letter) === -1) {
@@ -37,26 +34,23 @@ function Hangman(word) {
 
   this.getGuessedString = function () {
     console.log (this.arrWord.join(''));
-    return this;
+    return this.arrWord.join('');
   }
 
   this.getErrorsLeft = function () {
     console.log (this.errors);
-    return this;
+    return this.errors;
   }
 
   this.getWrongSymbols = function () {
     console.log (this.wrongSymbols);
-    return this;
+    return this.wrongSymbols;
   }
 
   this.startAgain = function (newWord) {
     word = newWord.toLowerCase();
     var arrWord = [];
-    var i;
-    for (i = 0; i < word.length; i++) {
-      arrWord[i] = '_'
-    }
+    var arrWord = new Array(word.length).fill('_');
     this.arrWord = arrWord;
     this.errors = 6;
     this.wrongSymbols = [];
