@@ -5,30 +5,27 @@
       return this.type;
     },
     getPerimeter: function () {
-      return Object.keys(this).filter(prop => prop.match(/^[a-z]{1}$/i))
-      .reduce((per, side) => { return per += this[side]; }, 0);
+      return Object.keys(this.sides).reduce((per, prop) => per + this.sides[prop], 0);
     },
     draw: function () {
       console.log(this.name + ' is drawn!');
     }
   };
   
-  function Triangle(a, b, c, name){
+  function Triangle(obj, name){
     this.name = name;
-    this.a = a;
-    this.b = b;
-    this.c = c;
+    this.sides = obj;    
     this.type = 'Triangle';
   }
   
-  function Square(a, name){
+  function Square(obj, name){
     this.name = name;
-    this.a = this.b = this.c = this.d = a;
+    this.sides = obj;
     this.type = 'Square';
   }
   
-  function Rhombus(a, rad, name){
-    Square.apply(this, arguments);
+  function Rhombus(obj, rad, name){
+    this.sides = obj;
     this.name = name;
     this.rad = rad;
     this.type = 'Rhombus';
@@ -38,12 +35,12 @@
   Square.prototype = shape;
   Rhombus.prototype = Object.create(Square.prototype);
   Rhombus.prototype.area = function () {
-    return (this.a * this.a * Math.sin(this.rad)).toFixed(1);
+    return (this.sides.a * this.sides.a * Math.sin(this.rad)).toFixed(1);
   };
   
-  var tri = new Triangle (1, 2, 3, 'tri');
-  var squ = new Square (1, 'squ');
-  var rho = new Rhombus (1, 1.5708, 'rho');
+  var tri = new Triangle ({a:1, b:2, c:3}, 'tri');
+  var squ = new Square ({a:1, b:1, c:1, d:1}, 'squ');
+  var rho = new Rhombus ({a:1, b:1, c:1, d:1}, 1.5708, 'rho');
   
   console.log(tri.getType());
   console.log(tri.getPerimeter());
