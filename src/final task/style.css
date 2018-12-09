@@ -1,0 +1,590 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  font-size: 12px;
+  height: calc(100vh + 10px);
+  overflow:  hidden;
+} 
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+  height: 45px;
+  background: #2f364a;
+  font: bold 0.8rem/45px Noto Sans, Arial, sans-serif;
+}
+
+.header_links {
+  width: 80px;
+  height: 45px;
+  float: right;
+  margin-right: 20px;
+  text-align: center;
+  color: #78829d;
+  position: relative;
+}
+
+.header_account + .header_links:before {
+  content: '';
+  display: block;
+  position: absolute;
+  background: #1f2635;
+  width: 5px;
+  height: 5px;
+  top: 20px;
+  left: -12.5px;
+  border-radius: 50%;
+}
+.header_links:hover {
+  color: #b7c6ef;
+}
+.header_account {
+  width: 160px;
+  height: 45px;
+  background: #15a4fa;
+  float: right;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.header_account:after {
+  content: '\25BC';
+  background: #fff;
+  position: absolute;
+  font: bold 0.9rem/16px sans-serif;
+  color: #15a4fa;
+  width: 15px;
+  height: 15px;
+  right: 20px;
+  top: 15px;
+  border-radius: 50%;
+}
+
+
+.header_account:before {
+  content: '';
+  position: absolute;
+  background: url(https://img.icons8.com/plasticine/50/000000/online-support.png) center no-repeat;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  left: 12px;
+  top: 5px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+ 
+}
+
+.header_account:hover {
+  box-shadow: inset 0px 0px 30px #fff;
+}
+main {
+  width: 100%;
+  height: calc(100vh - 85px);
+  position: relative;
+  display: flex;
+  background: #fff;
+
+}
+aside {
+  width: 200px;
+  background: #19202e;
+}
+
+.add_book {
+  height: 90px;
+  margin-bottom: 5px;
+  background: #1f2637;
+  width: 100%;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 1px 0px #141824;
+}
+
+.add_book button{
+  height: 44px;
+  width: 160px;
+  background: #f2795a;
+  border-radius: 5px;
+  outline: none;
+  border-color: #f2795a;
+  padding: 0;
+  color: #fff;
+  font: bold 0.8rem/44px Noto Sans, Arial, sans-serif;
+  cursor: pointer;
+}
+
+.add_book button:before {
+  content: '+';
+  font-size: 1rem;
+  margin-right: 15px;
+}
+
+
+.wrapper_pages {
+  height: 240px;
+  margin-bottom: 5px;
+  background: #1f2637;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 1px 0px #141824, 0px -1px 0px #282f41;
+}
+
+.pages {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  position: relative;
+}
+.pages a {
+  display: block;
+  line-height: 40px;
+  color: #78829d;
+
+}
+.pages li {
+  height: 40px;
+  padding-left: 45px;
+  font: 0.8rem Noto Sans, Arial, sans-serif;
+}
+.selected {
+  background-color: #15a4fa;
+}
+.selected a {
+  color: #fff;
+}
+
+.pages li:nth-child(1):before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  -webkit-mask: url(https://img.icons8.com/metro/50/000000/book.png) center / cover;
+  left: 20px;
+  top: 10px;
+  background: #78829d;
+}
+.pages li:nth-child(2):before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  -webkit-mask: url(https://img.icons8.com/windows/50/000000/globe.png) center / cover;
+  left: 20px;
+  top: 50px;
+  background: #fff;
+}
+.pages li:nth-child(3):before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  -webkit-mask: url(https://img.icons8.com/material/50/000000/shopping-cart.png) center / cover;
+  left: 20px;
+  top: 90px;
+  background: #78829d;
+}
+.pages li:nth-child(4):before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  -webkit-mask: url(https://img.icons8.com/metro/50/000000/christmas-star.png) center / cover;
+  left: 20px;
+  top: 130px;
+  background: #78829d;
+}
+.pages li:nth-child(5):before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  -webkit-mask: url(https://img.icons8.com/android/50/000000/menu.png) center / cover;
+  left: 20px;
+  top: 170px;
+  background: #78829d;
+}
+.pages li:nth-child(6):before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  -webkit-mask: url(https://img.icons8.com/windows/50/000000/clock.png) center / cover;
+  left: 20px;
+  top: 210px;
+  background: #78829d;
+}
+.pages li:hover {
+
+  box-shadow: inset 0px 0px 5px #78829d;
+}
+
+.pages li:hover a{
+  color: #fff;
+}
+
+.wrapper_types {
+  margin-bottom: 5px;
+  background: #1f2637;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 1px 0px #141824, 0px -1px 0px #282f41;
+}
+.types {
+  padding: 0;
+  width: 100%;
+  margin-top: 10px;
+  position: relative;
+}
+.types li {
+  font: 0.8rem Noto Sans, Arial, sans-serif;
+  line-height: 40px;
+  color: #78829d;
+  padding-left: 45px;
+  position: relative;
+}
+.types div{
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #e64c66;
+  border-radius: 50%;
+  left: 25px;
+  top: 15px;
+}
+
+.wrapper_history {
+
+  height: calc(100vh - 610px);
+  margin-bottom: 5px;
+  background: #1f2637;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px -1px 0px #282f41;
+  overflow: auto;
+}
+.history {
+  padding: 0;
+  width: 100%;
+  margin-top: 5px;
+  position: relative;
+}
+.history li {
+  font: 0.75rem Noto Sans, Arial, sans-serif;
+  color: #6f7d95;
+  padding: 0 10px 0 42px;
+  margin-top: 15px;
+  line-height: 20px;
+  position: relative;
+}
+.history li span {
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.history > li span:nth-child(1):before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  -webkit-mask: url(https://img.icons8.com/windows/50/000000/clock.png) center / cover;
+  left: 15px;
+  top: 0px;
+  background: #78829d;
+}
+
+.history li span:hover {
+  color: #a8b8de;
+  text-shadow: 0px 0px 5px #78829d;
+}
+
+.content {
+  width: calc(100% - 200px);
+  height: calc(100vh - 90px);
+  position: relative;
+}
+
+.content_header {
+  position: relative;
+  height: 120px;
+}
+h1 {
+  padding: 25px 0 0 25px;
+  margin: 0;
+  color: #444c63;
+  font: 1.5rem Noto Sans, Arial, sans-serif;
+}
+.menu li {
+  display: inline-block;
+  padding: 2px 10px;
+  margin: 12px 5px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  color: #8c97b2;
+  font: 1rem Noto Sans, Arial, sans-serif;
+  cursor: pointer;
+}
+
+.wrapper_menu {
+  height: 50px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  border-bottom: 1px solid #dadfea;
+  border-top: 1px solid #dadfea;
+}
+
+.menu {
+  margin: 0 0 0 25px;
+  padding: 0;
+  width: 60%;
+  display: inline-block;
+}
+li.menu_active {
+  background: #97b3ce;
+  color: #fff;
+  border: 2px solid #97b3ce;
+}
+.menu li:hover {
+
+  border: 2px solid #97b3ce;
+}
+
+.search {
+  width: 30%;
+  height: 32px;
+  border-radius: 15px;
+  outline: none;
+  padding: 0 15px;
+  color: #444c63;
+  font: 0.8rem Noto Sans, Arial, sans-serif;
+  border: 1px solid #8c97b2;
+  float: right;
+  margin: 9px 5px;
+}
+
+::-webkit-input-placeholder {
+  color:#8c97b2;
+}
+
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration { 
+  display: none; 
+}
+
+.menu:after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  -webkit-mask: url(https://img.icons8.com/metro/50/000000/search.png) center / cover;
+  right: 20px;
+  top: 15px;
+  background: #8c97b2;
+  z-index: 5;
+  cursor: pointer;
+}
+#wrapperbooks {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: calc(100vh - 210px);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px #7F8694, inset 0 0 5px #19202E; 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #15A4FA; 
+    -webkit-box-shadow: inset 0 0 2px #19202E; 
+}
+
+.books {
+  width: 250px;
+  height: 405px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+.cover {
+  width: 250px;
+  height: 275px;
+  margin-top: 20px;
+}
+.name {
+  margin: 5px 0 0 5px;
+  color: #444c63;
+  font: 1rem Noto Sans, Arial, sans-serif;
+}
+.author {
+  margin-left: 5px;
+  color: #6f7d95;
+  font: 0.7rem Noto Sans, Arial, sans-serif;
+}
+.rate {
+  display: flex;
+  height: 35px;
+}
+
+.star {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background: url('https://img.icons8.com/ios/30/000000/star.png') no-repeat;
+  filter: brightness(0.9) contrast(110%);
+  padding: 1px;
+
+}
+
+.star.active {
+  background: url('https://img.icons8.com/office/30/000000/filled-star.png') no-repeat;
+
+}
+
+.star.oncursor {
+  background: url('https://img.icons8.com/office/30/000000/filled-star.png') no-repeat;
+  filter: brightness(1.1) contrast(110%);
+}
+
+.info {
+  display: block;
+  width: 250px;
+  height: 15px;
+  padding-left: 5px;
+  color: #6f7d95;
+  font: 0.7rem Noto Sans, Arial, sans-serif;
+}
+
+.books:hover {
+  box-shadow: 4px 4px 15px #444c63;
+  filter: brightness(1.1);
+  filter: contrast(110%);
+}
+
+footer {
+  height: 45px;
+  width: 100%;
+  background: #181e2c;
+  text-align: right;
+}
+
+.quest {
+  display: inline-block;
+  height: 45px;
+  width: 45px;
+  background: #1f2637;
+  position: relative;
+  cursor: pointer;
+}
+.quest:after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  bottom: 9px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: url(https://image.freepik.com/free-icon/no-translate-detected_318-57711.jpg) top left/cover;
+  box-shadow: inset 0px 0px 0px 2px #000;
+  border: 1px solid #000;
+}
+.settings {
+  display: inline-block;
+  height: 45px;
+  width: 45px;
+  background: #15a4fa;
+  position: relative;
+  cursor: pointer;
+  float: right;
+}
+.settings:after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: url(https://api.icons8.com/download/e0e26aa5db96c5bdd7aa88a0aa052e57b42acac5/iOS7/PNG/512/Very_Basic/settings-512.png) top left/cover;
+}
+.settings:hover,
+.quest:hover {
+  background: #fff;
+  box-shadow: inset 0px 0px 5px #1f2637;
+}
+
+.darkness {
+  width: 100%;
+  height: 1050px;
+  background: #000;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
+
+.wrapperAdd {
+  width: 450px;
+  height: 430px;
+  position: absolute;
+  top: calc(50% - 215px);
+  left: calc(50% - 225px);
+  background: url('https://img.icons8.com/dusk/100/000000/bookmark.png') no-repeat top right, 
+              radial-gradient(circle at top left, #EECFBA, #C5DDE8);
+  border-radius: 25px;
+  z-index: 3;
+}
+
+#newBookForm div {
+  padding-top: 5px;
+  font: bold 0.9rem 'Ruda', sans-serif;
+  color: #36445C;
+  text-shadow: 0px 0px 5px #78829d;
+  text-align: center;
+  
+}
+
+#newBookForm input {
+  display: block;
+  margin: 2px auto;
+  width: 230px;
+  height: 22px;
+}
+
+#newBookForm input:last-child, 
+#newBookForm input:nth-last-child(2) {
+  cursor: pointer;
+}
