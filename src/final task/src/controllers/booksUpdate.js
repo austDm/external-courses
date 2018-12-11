@@ -1,8 +1,8 @@
-export default function booksUpdate(url, __DBBooks, Store, historyStore){
+function booksUpdate(url){
 	var handler = function(request){
 		var __DBBooks = JSON.parse(request.responseText);
 		
-		Store.allBooks = sortByTitles(__DBBooks);
+		Store.allBooks = Book.sortByTitles(__DBBooks);
 		Store.allBooks.forEach(
 			function(book) {
 				if (!book.image_url) {
@@ -20,9 +20,9 @@ export default function booksUpdate(url, __DBBooks, Store, historyStore){
 		};
 		setIdArrayElements(Store.allBooks, 'book');
 
-		Store.sortedRecentBooks = sortByUpdate(Store.allBooks);
-		Store.sortedPopularBooks = sortByRate(Store.allBooks);
-		Store.sortedFreeBooks = sortFreeBooks(Store.allBooks);
+		Store.sortedRecentBooks = Book.sortByUpdate(Store.allBooks);
+		Store.sortedPopularBooks = Book.sortByRate(Store.allBooks);
+		Store.sortedFreeBooks = Book.sortFreeBooks(Store.allBooks);
 
 		domBooksClear();
 		Store.allBooks.forEach(
@@ -40,19 +40,8 @@ export default function booksUpdate(url, __DBBooks, Store, historyStore){
 		);
 		setSearchEventListener(Store);
 	}
-	SendDBRequest('GET', url, '', handler)
+	sendDBRequest(
+		{	method: 'GET',
+			url: url
+		}, handler)
 }
-
-
-import SendDBRequest from './../utils/SendDBRequest.js';
-import sortByTitles from './../store/sortByTitles.js';
-import setIdArrayElements from './../utils/setIdArrayElements.js';
-import sortByUpdate from './../store/sortByUpdate.js';
-import sortByRate from './../store/sortByRate.js';
-import sortFreeBooks from './../store/sortFreeBooks.js';
-import domBooksClear from './../views/domBooksClear.js';
-import domBooksFill from './../views/domBooksFill.js';
-import History from './../models/history.js';
-import domHistoryFill from './../views/domHistoryFill.js';
-import historyUpdate from './../controllers/historyUpdate.js';
-import setSearchEventListener from './../views/setSearchEventListener.js';

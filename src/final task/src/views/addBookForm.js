@@ -1,4 +1,4 @@
-export default function addBookForm(Store, historyStore) {
+function addBookForm() {
 	var backGr = document.createElement('div');
 	document.body.appendChild(backGr);
 	backGr.className = 'darkness';
@@ -114,10 +114,10 @@ export default function addBookForm(Store, historyStore) {
 			Store.addedBooks.push(newBook);
 			domBooksFill (newBook, Store);
 			Store.allBooks.push(Store.addedBooks[Store.addedBooks.length - 1]);
-			setIdArrayElements(Store.allBooks, 'book');
-			Store.sortedRecentBooks = sortByUpdate(Store.allBooks);
-			Store.sortedPopularBooks = sortByRate(Store.allBooks);
-			Store.sortedFreeBooks = sortFreeBooks(Store.allBooks);
+			setIdArrayElements(Store.allBooks.slice(- 1), 'book');
+			Store.sortedRecentBooks = Book.sortByUpdate(Store.allBooks);
+			Store.sortedPopularBooks = Book.sortByRate(Store.allBooks);
+			Store.sortedFreeBooks = Book.sortFreeBooks(Store.allBooks);
 			document.body.removeChild(backGr);
 			document.body.removeChild(wrapperAdd);
 			var history = new History(newBook);
@@ -126,13 +126,3 @@ export default function addBookForm(Store, historyStore) {
 		}
 	);
 }
-
-import Book from './../models/book.js';
-import History from './../models/history.js';
-import domBooksFill from './../views/domBooksFill.js';
-import domHistoryFill from './../views/domHistoryFill.js';
-import setIdArrayElements from './../utils/setIdArrayElements.js';
-import sortByRate from './../store/sortByRate.js';
-import sortByUpdate from './../store/sortByUpdate.js';
-import sortFreeBooks from './../store/sortFreeBooks.js';
-import historyUpdate from './../controllers/historyUpdate.js';

@@ -1,4 +1,4 @@
-export default function setSearchEventListener(Store) {
+function setSearchEventListener() {
 	var domSearch = document.querySelector('.search');
 	domSearch.addEventListener('input', 
 		function () {
@@ -30,5 +30,3 @@ export default function setSearchEventListener(Store) {
 		}
 	);
 }
-import domBooksClear from './../views/domBooksClear.js';
-import domBooksFill from './../views/domBooksFill.js';

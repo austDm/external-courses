@@ -1,4 +1,4 @@
-export default function domHistoryFill (historyObj) {
+function domHistoryFill (historyObj) {
 	var domHistory = document.querySelector('.history');
 	var newHistory = document.createElement('li');
 	
@@ -17,4 +17,3 @@ export default function domHistoryFill (historyObj) {
 		domHistory.removeChild(domAllHistory[3]);
 	}
 }
-import parseDate from './../utils/parseDate.js';

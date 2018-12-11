@@ -1,4 +1,4 @@
-export default function domCategoriesFill (categoryObj) {
+function domCategoriesFill (categoryObj) {
 	var marker = document.createElement('div');
 	var category = document.createElement('li');
  	var parentElem = document.querySelector('.types');

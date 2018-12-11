@@ -1,4 +1,4 @@
-export default function domBooksFill (bookObj, Store) {
+function domBooksFill (bookObj) {
 	var book = document.createElement('div');
  	var parentElem = document.getElementById('wrapperbooks');
 	parentElem.appendChild(book);
@@ -42,6 +42,3 @@ export default function domBooksFill (bookObj, Store) {
 	var date = new Date(bookObj.updatedAt);
 	info.innerHTML = 'price:' + bookObj.cost + '$,' + '<br /> updated:' + parseDate(date);
 }
-
-import setStarsEventListeners from './../views/setStarsEventListeners.js';
-import parseDate from './../utils/parseDate.js';

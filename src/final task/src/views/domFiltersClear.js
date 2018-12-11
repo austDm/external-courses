@@ -1,4 +1,4 @@
-export default function domFiltersClear () {
+function domFiltersClear () {
 	var wrapperDomFilters = document.querySelector('.menu');
     
     while (wrapperDomFilters.firstChild) {

@@ -1,8 +1,12 @@
-export default function setIdArrayElements(array, clas) {
-	var count = 1000;
-	array.forEach(
-		function(element){
-			element.id = clas + count++;
-		}
-	);
+function id () {
+	var x = 1000;
+	return function (array, clas) {
+		array.forEach(
+			function(element){
+				element.id = clas + x++;
+			}
+		);
+	}
 }
+
+var setIdArrayElements = id();

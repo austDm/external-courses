@@ -1,4 +1,4 @@
-export default function setStarsEventListeners (book, stars, Store) {
+function setStarsEventListeners (book, stars, Store) {
 	book.addEventListener('click', 
 		function (event) {
 			var target = event.target;
@@ -24,7 +24,7 @@ export default function setStarsEventListeners (book, stars, Store) {
 						}
 					}
 				);
-				Store.sortedPopularBooks = sortByRate(Store.allBooks);
+				Store.sortedPopularBooks = Book.sortByRate(Store.allBooks);
 			}
 		}
 	);
@@ -57,5 +57,3 @@ export default function setStarsEventListeners (book, stars, Store) {
 		}
 	);
 }
-
-import sortByRate from './../store/sortByRate.js';

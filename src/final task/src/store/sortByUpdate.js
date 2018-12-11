@@ -1,4 +1,4 @@
-export default function sortByUpdate (array) {
+Book.sortByUpdate = function (array) {
 	return array.slice().sort(
 		function(a, b){
 			if (a.updatedAt > b.updatedAt) {

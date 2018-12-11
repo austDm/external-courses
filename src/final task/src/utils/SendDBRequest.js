@@ -1,6 +1,6 @@
-export default function SendDBRequest(method, url, body, handler){
+function sendDBRequest(myInit, handler){
 	var xhr = new XMLHttpRequest();
-
+	var method = myInit.method.toUpperCase()
 	xhr.onreadystatechange = function() {
 		
 		if (this.readyState != 4) return;
@@ -12,13 +12,13 @@ export default function SendDBRequest(method, url, body, handler){
 		if (this.readyState === 4) handler(xhr);
 	}
 		
-	if (method.toUpperCase() === 'GET') {
-		xhr.open(method.toUpperCase(), url);
+	if (method === 'GET') {
+		xhr.open(method, myInit.url);
 		xhr.send();
 
-	} else if (method.toUpperCase() === 'POST') {
-		xhr.open(method.toUpperCase(), url);
+	} else if (method === 'POST') {
+		xhr.open(method, myInit.url);
 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-		xhr.send(body);
+		xhr.send(myInit.body);
 	};
 }

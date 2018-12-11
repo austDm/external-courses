@@ -1,4 +1,4 @@
-export default class History {
+class History {
     constructor(book) {
         this.book = {};
         this.date = Date.now();

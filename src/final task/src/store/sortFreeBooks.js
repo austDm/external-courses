@@ -1,4 +1,4 @@
-export default function sortFreeBooks (array) {
+Book.sortFreeBooks  = function (array) {
 	var sortedArr = [];
 	array.slice().forEach(
 		function (element) {

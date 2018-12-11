@@ -1,4 +1,4 @@
-export default function setFilterEventListeners(wrapperFilters, filters, Store){
+function setFilterEventListeners(wrapperFilters, filters){
 	wrapperFilters.addEventListener('click', 
 		function (event) {
 			var target = event.target;
@@ -25,41 +25,40 @@ export default function setFilterEventListeners(wrapperFilters, filters, Store){
 	wrapperFilters.addEventListener('click', 
 		function (event) {
 			var target = event.target;
-			if (target.innerHTML === 'All Books') {
-				domBooksClear ();
-				Store.allBooks.forEach(
-					function(book) {
-						domBooksFill(book, Store);
-					}
-				);
-			}
-			if (target.innerHTML === 'Most Recent') {
-				domBooksClear ();
-				Store.sortedRecentBooks.forEach(
-					function(book) {
-						domBooksFill(book, Store);
-					}
-				);
-			}
-			if (target.innerHTML === 'Most Popular') {
-				domBooksClear ();
-				Store.sortedPopularBooks.forEach(
-					function(book) {
-						domBooksFill(book, Store);
-					}
-				);
-			}
-			if (target.innerHTML === 'Free Books') {
-				domBooksClear ();
-				Store.sortedFreeBooks.forEach(
-					function(book) {
-						domBooksFill(book, Store);
-					}
-				);
+			switch (target.innerHTML) {
+				case 'All Books':
+					domBooksClear ();
+					Store.allBooks.forEach(
+						function(book) {
+							domBooksFill(book, Store);
+						}
+					);
+					break;
+				case 'Most Recent':
+					domBooksClear ();
+					Store.sortedRecentBooks.forEach(
+						function(book) {
+							domBooksFill(book, Store);
+						}
+					);
+					break;
+				case 'Most Popular':
+					domBooksClear ();
+					Store.sortedPopularBooks.forEach(
+						function(book) {
+							domBooksFill(book, Store);
+						}
+					);
+					break;
+				case 'Free Books':
+					domBooksClear ();
+					Store.sortedFreeBooks.forEach(
+						function(book) {
+							domBooksFill(book, Store);
+						}
+					);
+					break;
 			}
 		}
 	);
 }
-
-import domBooksClear from './../views/domBooksClear.js';
-import domBooksFill from './../views/domBooksFill.js';

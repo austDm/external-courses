@@ -1,4 +1,4 @@
-export default function parseDate (date) {
+function parseDate (date) {
 	return date.toLocaleString ("en-US", 
 		{	year: 'numeric',
 			month: 'long',

@@ -1,4 +1,4 @@
-export default function filtersUpdate(url, __DBFilters, Store){
+function filtersUpdate(url){
 	var handler = function(request){
 		__DBFilters = JSON.parse(request.responseText);
 
@@ -11,9 +11,8 @@ export default function filtersUpdate(url, __DBFilters, Store){
 		var wrapperFilters = document.querySelector('.menu');
 		setFilterEventListeners(wrapperFilters, filters, Store);
 	}
-	SendDBRequest('GET', url, '', handler)
+	sendDBRequest(
+		{	method: 'GET',
+			url: url
+		}, handler)
 }
-
-import domFiltersFill from './../views/domFiltersFill.js';
-import setFilterEventListeners from './../views/setFilterEventListeners.js';
-import SendDBRequest from './../utils/SendDBRequest.js';

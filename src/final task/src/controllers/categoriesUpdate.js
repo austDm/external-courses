@@ -1,4 +1,4 @@
-export default function categoriesUpdate(url, __DBCategories, Store){
+function categoriesUpdate(url){
 	var handler = function(request){
 		__DBCategories = JSON.parse(request.responseText);
 		Store.allCategories = __DBCategories.slice();
@@ -7,9 +7,8 @@ export default function categoriesUpdate(url, __DBCategories, Store){
 	 		domCategoriesFill(category);
 		});
 	}
-	SendDBRequest('GET', url, '', handler)
+	sendDBRequest(
+		{	method: 'GET',
+			url: url
+		}, handler)
 }
-
-
-import domCategoriesFill from './../views/domCategoriesFill.js';
-import SendDBRequest from './../utils/SendDBRequest.js';

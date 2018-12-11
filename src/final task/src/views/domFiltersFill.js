@@ -1,4 +1,4 @@
-export default function domFiltersFill (filterObj) {
+function domFiltersFill (filterObj) {
     var filter = document.createElement('li');
  	var parentElem = document.querySelector('.menu');
     

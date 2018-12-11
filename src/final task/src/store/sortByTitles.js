@@ -1,4 +1,4 @@
-export default function sortByTitles (array) {
+Book.sortByTitles = function (array) {
 	return array.slice().sort(
 		function(a, b){
 			if (a.title.toLowerCase() < b.title.toLowerCase()) {
