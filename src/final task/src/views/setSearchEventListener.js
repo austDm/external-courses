@@ -24,7 +24,6 @@ function setSearchEventListener() {
 						}
 					}
 				}
-			Store.searchArray = Store.searchArray.filter(element => element);
 			domBooksClear ();
 			Store.searchArray.forEach(function(element){domBooksFill (element, Store);});
 		}

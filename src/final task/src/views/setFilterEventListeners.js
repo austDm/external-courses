@@ -20,6 +20,8 @@ function setFilterEventListeners(wrapperFilters, filters){
 					}
 				}
 			);
+			var search = document.querySelector('.search');
+			search.value = '';
 		}
 	)
 	wrapperFilters.addEventListener('click', 

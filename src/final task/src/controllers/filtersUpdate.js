@@ -9,7 +9,7 @@ function filtersUpdate(url){
 
 		var filters = document.querySelectorAll('.menu li');
 		var wrapperFilters = document.querySelector('.menu');
-		setFilterEventListeners(wrapperFilters, filters, Store);
+		setFilterEventListeners(wrapperFilters, filters);
 	}
 	sendDBRequest(
 		{	method: 'GET',

@@ -27,7 +27,7 @@ function booksUpdate(url){
 		domBooksClear();
 		Store.allBooks.forEach(
 			function(book) {
-				domBooksFill(book, Store);
+				domBooksFill(book);
 			}
 		);
 		var historyBooks = Store.sortedRecentBooks.slice();
