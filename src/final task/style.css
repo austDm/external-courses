@@ -318,7 +318,7 @@ aside {
 
 .content {
   width: calc(100% - 200px);
-  height: calc(100vh - 90px);
+  height: calc(100vh - 85px);
   position: relative;
 }
 
@@ -350,6 +350,7 @@ h1 {
   bottom: 0;
   border-bottom: 1px solid #dadfea;
   border-top: 1px solid #dadfea;
+  overflow: hidden;
 }
 
 .menu {
@@ -410,7 +411,7 @@ input::-webkit-search-results-decoration {
   flex-wrap: wrap;
   overflow-x: hidden;
   overflow-y: auto;
-  height: calc(100vh - 210px);
+  height: calc(100vh - 205px);
 }
 
 ::-webkit-scrollbar {
@@ -432,20 +433,24 @@ input::-webkit-search-results-decoration {
 
 .books {
   width: 250px;
-  height: 405px;
+  height: 455px;
   cursor: pointer;
   border-radius: 5px;
-  margin-top: 5px;
+  margin-top: 10px;
+  box-shadow: 0px 0px 10px 5px #D4D4D4;
 }
 .cover {
   width: 250px;
-  height: 275px;
-  margin-top: 20px;
+  height: 355px;
 }
 .name {
   margin: 5px 0 0 5px;
   color: #444c63;
-  font: 1rem Noto Sans, Arial, sans-serif;
+  font: 1.05rem Noto Sans, Arial, sans-serif;
+}
+.searchSymb {
+  color: #D4D4D4;
+  background: #000;
 }
 .author {
   margin-left: 5px;

@@ -3,6 +3,7 @@ function setSearchEventListener() {
 	domSearch.addEventListener('input', 
 		function () {
 			var domFilters = document.querySelectorAll('.menu li');
+			var searchValue = domSearch.value.toLowerCase();
 			for (var i = 0; i < domFilters.length; i++) {
 				if (domFilters[i].classList.contains('menu_active')) break;
 			}
@@ -15,17 +16,25 @@ function setSearchEventListener() {
 			} else if (i === 3) {
 				Store.searchArray = Store.sortedFreeBooks.slice();
 			}
-			for (var j = 0; j < Store.searchArray.length; j++) {
-					for (var k = 0; k < domSearch.value.length; k++) {
-						
-						if (Store.searchArray[j].title[k].toLowerCase() !== domSearch.value[k].toLowerCase()) {
-							delete Store.searchArray[j];
-							break;
-						}
-					}
-				}
+
+			Store.searchArray = Store.searchArray.filter(
+				book => book.title.toLowerCase().indexOf(searchValue) !== -1
+			);
 			domBooksClear ();
 			Store.searchArray.forEach(function(element){domBooksFill (element, Store);});
+
+			var names = document.querySelectorAll('.name');
+			names.forEach(
+				function(title) {
+					var name = title.innerHTML.toLowerCase();
+					var newTitleStart = title.innerHTML.slice(0, name.indexOf(searchValue));
+					var newTitleEnd = title.innerHTML.slice(name.indexOf(searchValue) + domSearch.value.length);
+					var middle = '<span class = "searchSymb">' + 
+						title.innerHTML.slice(name.indexOf(searchValue), name.indexOf(searchValue) + 
+						domSearch.value.length) + '</span>';
+					title.innerHTML = newTitleStart + middle + newTitleEnd;
+				}
+			)
 		}
 	);
 }
