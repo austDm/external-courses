@@ -1,14 +1,6 @@
-var __DBBooks = [];
-var __DBFilters = [];
-var __DBCategories = []
-var historyStore = [];
-var Store = {};
+const model = Model();
+const controller = Controller(model);
+const view = View(controller)
 
-Store.addedBooks = [];
-
-var buttonAdd = document.querySelector('button');
-buttonAdd.addEventListener('click', addBookForm);
-
-booksUpdate ('https://rsu-library-api.herokuapp.com/books');
-filtersUpdate ('https://rsu-library-api.herokuapp.com/filters');
-categoriesUpdate ('https://rsu-library-api.herokuapp.com/categories');
+view.init()
+console.log(model);

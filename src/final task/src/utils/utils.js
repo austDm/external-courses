@@ -1,6 +1,28 @@
+function id () {
+	let x = 1000;
+	return (array, clas) => {
+		array.forEach(
+			(element) => {
+				element.id = clas + x++;
+			}
+		);
+	}
+}
+const setIdArrayElements = id();
+
+function parseDate (date) {
+	return date.toLocaleString ("en-US", 
+		{	year: 'numeric',
+			month: 'long',
+			day: 'numeric',
+			weekday: 'long',
+		}
+	)
+}
+
 function sendDBRequest(myInit, handler){
-	var xhr = new XMLHttpRequest();
-	var method = myInit.method.toUpperCase()
+	const xhr = new XMLHttpRequest();
+	const method = myInit.method.toUpperCase()
 	xhr.onreadystatechange = function() {
 		
 		if (this.readyState != 4) return;
