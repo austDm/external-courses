@@ -39,9 +39,8 @@ function Controller(model){
 	controller.getBookClass = () => model.Book;
 	controller.getHistoryClass = () => model.History;
 
-	controller.addToAllLibrary = book => model.allBooks.push(book);
-	controller.addToHistory = history => model.allHistory.push(history);
-	controller.historyUpdate = history => model.allHistory.push(history);
+	controller.addToAllLibrary = book => model.addBook(book);
+	controller.addToHistory = history => model.addHistory(history);
 
 	controller.booksRequestHandler = function(request, args) {
 		const __DBBooks = JSON.parse(request.responseText);
@@ -74,7 +73,7 @@ function Controller(model){
 		historyBooks.reverse().forEach(
 			 book => {
 				 var history = new model.History(book);
-				 controller.historyUpdate(history);
+				 controller.addToHistory(history);
 			 }
 		);
 		args[1]();	

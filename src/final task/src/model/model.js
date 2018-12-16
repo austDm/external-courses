@@ -55,6 +55,7 @@ function Model() {
 	};
 
 	model.Book.sortFreeBooks = () => {
+		model.sortedFreeBooks = [];
 		model.allBooks.slice().forEach(
 			element => {
 				if (element.cost === 0) model.sortedFreeBooks.push(element);
@@ -69,6 +70,9 @@ function Model() {
 	        Object.assign(this.book, book);
 	    }
 	}
+
+	model.addBook = book => model.allBooks.push(book);
+	model.addHistory = history => model.allHistory.push(history);
 
 	model.booksUrl = 'https://rsu-library-api.herokuapp.com/books';
 	model.filtersUrl = 'https://rsu-library-api.herokuapp.com/filters';
