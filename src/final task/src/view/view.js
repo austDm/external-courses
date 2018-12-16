@@ -1,22 +1,13 @@
 function View(controller) {
-	
 	const view = {};
 
-	const updateAllBooks = function () {
-		renderBooks(controller.getLibrary());
-	}
+	const updateAllBooks = () => renderBooks(controller.getSortLibrary('titles'));
 
-	const updateFilters = function() {
-		renderFilters(controller.getFilters());
-	}
+	const updateFilters = () => renderFilters(controller.getFilters());
 
-	const updateHistory = function() {
-		renderAllHistory(controller.getHistory());
-	}
+	const updateHistory = () => renderAllHistory(controller.getHistory());
 
-	const updateCatgories = function() {
-		renderCategories(controller.getCategories());
-	}
+	const updateCatgories = () => renderCategories(controller.getCategories());
 
 	const renderAllHistory = allHistory => {
 		const renderHistory = historyObj => {
@@ -144,14 +135,14 @@ function View(controller) {
 					  		stars[i].classList.remove('active', 'oncursor');
 					  	}
 					}
-					controller.getLibrary().forEach(
+					controller.getSortLibrary('titles').forEach(
 						element => {
 							if (element.id === book.getAttribute('id')) {
 								element.rating = count + 1;
 							}
 						}
 					);
-					controller.setPopularLibrary();
+					controller.sortLibrary('popular');
 				}
 			}
 		);
@@ -229,19 +220,19 @@ function View(controller) {
 				switch (target.innerHTML) {
 					case 'All Books':
 						removeBooks();
-						renderBooks(controller.getLibrary());
+						renderBooks(controller.getSortLibrary('titles'));
 						break;
 					case 'Most Recent':
 						removeBooks();
-						renderBooks(controller.getRecentLibrary());
+						renderBooks(controller.getSortLibrary('recent'));
 						break;
 					case 'Most Popular':
 						removeBooks();
-						renderBooks(controller.getPopularLibrary());
+						renderBooks(controller.getSortLibrary('popular'));
 						break;
 					case 'Free Books':
 						removeBooks();
-						renderBooks(controller.getFreeLibrary());
+						renderBooks(controller.getSortLibrary('free'));
 						break;
 				}
 				const search = document.querySelector('.search');
@@ -261,13 +252,13 @@ function View(controller) {
 					if (domFilters[i].classList.contains('menu_active')) break;
 				}
 				if (i === 0) {
-					searchArray = controller.getLibrary().slice();
+					searchArray = controller.getSortLibrary('titles').slice();
 				} else if (i === 1) {
-					searchArray = controller.getRecentLibrary().slice();
+					searchArray = controller.getSortLibrary('recent').slice();
 				} else if (i === 2) {
-					searchArray = controller.getPopularLibrary().slice();
+					searchArray = controller.getSortLibrary('popular').slice();
 				} else if (i === 3) {
-					searchArray = controller.getFreeLibrary().slice();
+					searchArray = controller.getSortLibrary('free').slice();
 				}
 
 				searchArray = searchArray.filter(
@@ -432,29 +423,29 @@ function View(controller) {
 						)
 						controller.addToAllLibrary(newBook);
 						removeBooks();
-						renderBooks(controller.getLibrary());
+						renderBooks(controller.getSortLibrary('titles'));
 
 						const filters = document.querySelectorAll('.menu li');
 						for (let i = 0, length = filters.length; i < length; i++) {
 							if (i === 0) {
 								filters[i].classList.add('menu_active');
 							} else {
-							filters[i].classList.remove('menu_active');
+								filters[i].classList.remove('menu_active');
 							}
 						}
 										
-						setIdArrayElements(controller.getLibrary().slice(- 1), 'book');
+						setIdArrayElements(controller.getSortLibrary('titles').slice(- 1), 'book');
 
-						controller.setPopularLibrary();
-						controller.setRecentLibrary();
-						controller.setFreeLibrary();
+						controller.sortLibrary('recent');
+						controller.sortLibrary('free');
+						controller.sortLibrary('popular');
 
 						const history = new History(newBook);
 						controller.addToHistory(history);
 						renderAllHistory(controller.getHistory())
 					}
 				);
-			 }
+			}
 		);
 	}
 	

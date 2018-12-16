@@ -20,7 +20,7 @@ function parseDate (date) {
 	)
 }
 
-function sendDBRequest(myInit, handler){
+function sendDBRequest(myInit, handler, args){
 	const xhr = new XMLHttpRequest();
 	const method = myInit.method.toUpperCase()
 	xhr.onreadystatechange = function() {
@@ -31,7 +31,7 @@ function sendDBRequest(myInit, handler){
 			console.log( 'ошибка: ' + (this.status ? this.statusText : 'повторите позже') );
 			return;
 		};
-		if (this.readyState === 4) handler(xhr);
+		if (this.readyState === 4) handler(xhr, args);
 	}
 		
 	if (method === 'GET') {

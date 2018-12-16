@@ -1,55 +1,8 @@
-function Model (){
+function Model() {
 	const model = {};
 	model.addedBooks = [];
 	model.allHistory = [];
-
-	model.BookSorts = {
-		sortByRate: array => {
-			return array.slice().sort(
-				(a, b) => {
-					if (a.rating > b.rating) {
-						return -1;
-					} else {
-						return 1;
-					}
-				}
-			);
-		},
-
-		sortByTitles: array => {
-			return array.slice().sort(
-				(a, b) => {
-					if (a.title.toLowerCase() < b.title.toLowerCase()) {
-						return -1;
-					} else {
-						return 1;
-					}
-				}
-			);
-		},
-
-		sortByUpdate: array => {
-			return array.slice().sort(
-				(a, b) => {
-					if (a.updatedAt > b.updatedAt) {
-						return -1;
-					} else {
-						return 1;
-					}
-				}
-			);
-		},
-
-		sortFreeBooks: array => {
-			const sortedArr = [];
-			array.slice().forEach(
-				element => {
-					if (element.cost === 0) sortedArr.push(element);
-				}
-			)
-			return sortedArr;
-		},
-	}
+	model.sortedFreeBooks = [];
 
 	model.Book = class Book {
 	    constructor(firstname, lastName, categories, cost, image_url, rating, title) {
@@ -64,6 +17,50 @@ function Model (){
 		    this.title = title;
 	    }
 	}
+
+	model.Book.sortByRate = () => {
+		model.sortedPopularBooks = model.allBooks.slice().sort(
+			(a, b) => {
+				if (a.rating > b.rating) {
+					return -1;
+				} else {
+					return 1;
+				}
+			}
+		);
+	};
+
+	model.Book.sortByTitles = () => {
+		model.allBooks.sort(
+			(a, b) => {
+				if (a.title.toLowerCase() < b.title.toLowerCase()) {
+					return -1;
+				} else {
+					return 1;
+				}
+			}
+		);
+	};
+
+	model.Book.sortByUpdate = () => {
+		model.sortedRecentBooks = model.allBooks.slice().sort(
+			(a, b) => {
+				if (a.updatedAt > b.updatedAt) {	
+					return -1;
+				} else {
+					return 1;
+				}
+			}
+		);
+	};
+
+	model.Book.sortFreeBooks = () => {
+		model.allBooks.slice().forEach(
+			element => {
+				if (element.cost === 0) model.sortedFreeBooks.push(element);
+			}
+		)
+	};
 
 	model.History = class History {
 	    constructor(book) {
