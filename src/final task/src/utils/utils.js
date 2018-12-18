@@ -1,11 +1,7 @@
-function id () {
+function id() {
 	let x = 1000;
 	return (array, clas) => {
-		array.forEach(
-			(element) => {
-				element.id = clas + x++;
-			}
-		);
+		array.forEach(element => element.id = clas + x++);
 	}
 }
 const setIdArrayElements = id();
@@ -20,7 +16,7 @@ function parseDate (date) {
 	)
 }
 
-function sendDBRequest(myInit, handler, args){
+function sendDBRequest(myInit, handler){
 	const xhr = new XMLHttpRequest();
 	const method = myInit.method.toUpperCase()
 	xhr.onreadystatechange = function() {
@@ -31,7 +27,7 @@ function sendDBRequest(myInit, handler, args){
 			console.log( 'ошибка: ' + (this.status ? this.statusText : 'повторите позже') );
 			return;
 		};
-		if (this.readyState === 4) handler(xhr, args);
+		if (this.readyState === 4) handler(xhr);
 	}
 		
 	if (method === 'GET') {

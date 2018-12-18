@@ -1,4 +1,4 @@
-function Controller(model){
+function Controller(model) {
 	
 	const controller = {};
 
@@ -42,7 +42,7 @@ function Controller(model){
 	controller.addToAllLibrary = book => model.addBook(book);
 	controller.addToHistory = history => model.addHistory(history);
 
-	controller.booksRequestHandler = function(request, args) {
+	controller.booksRequestHandler = function(request) {
 		const __DBBooks = JSON.parse(request.responseText);
 		
 		model.allBooks = __DBBooks;
@@ -68,22 +68,23 @@ function Controller(model){
 		controller.sortLibrary('free');
 		controller.sortLibrary('popular');
 
-		args[0]();
 		var historyBooks = controller.getSortLibrary('recent').slice();
 		historyBooks.reverse().forEach(
 			 book => {
 				 var history = new model.History(book);
 				 controller.addToHistory(history);
 			 }
-		);
-		args[1]();	
+		);	
 	}
 
 	controller.loadBooks = (updateAllBooks, updateHistory) => {
 		sendDBRequest(
-			{method: 'GET', url: model.booksUrl}, 
-			controller.booksRequestHandler,
-			[updateAllBooks, updateHistory]
+			{method: 'GET', url: 'https://rsu-library-api.herokuapp.com/books'}, 
+			data => {
+				controller.booksRequestHandler(data);
+				updateAllBooks();
+				updateHistory();
+			}
 		);
 	}
 
@@ -94,7 +95,7 @@ function Controller(model){
 			model.allFilters = __DBFilters.slice();
 			updateFilters();
 		}
-		sendDBRequest({method: 'GET', url: model.filtersUrl}, handler)
+		sendDBRequest({method: 'GET', url: 'https://rsu-library-api.herokuapp.com/filters'}, handler)
 	}
 
 	controller.loadCategories = function(updateCatgories) {
@@ -103,7 +104,7 @@ function Controller(model){
 			model.allCategories = __DBCategories.slice();
 			updateCatgories();
 		}
-		sendDBRequest({method: 'GET', url: model.categoriesUrl}, handler)
+		sendDBRequest({method: 'GET', url: 'https://rsu-library-api.herokuapp.com/categories'}, handler)
 	};
 		
 	return controller;

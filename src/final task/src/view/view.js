@@ -427,11 +427,7 @@ function View(controller) {
 
 						const filters = document.querySelectorAll('.menu li');
 						for (let i = 0, length = filters.length; i < length; i++) {
-							if (i === 0) {
-								filters[i].classList.add('menu_active');
-							} else {
-								filters[i].classList.remove('menu_active');
-							}
+							i === 0 ? filters[i].classList.add('menu_active') : filters[i].classList.remove('menu_active')
 						}
 										
 						setIdArrayElements(controller.getSortLibrary('titles').slice(- 1), 'book');

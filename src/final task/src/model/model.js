@@ -4,7 +4,7 @@ function Model() {
 	model.allHistory = [];
 	model.sortedFreeBooks = [];
 
-	model.Book = class Book {
+	class Book {
 	    constructor(firstname, lastName, categories, cost, image_url, rating, title) {
 		    this.author = {};
 		    this.author.firstName = firstname;
@@ -15,55 +15,34 @@ function Model() {
 		    this.image_url = image_url;
 		    this.rating = rating;
 		    this.title = title;
-	    }
+		}
+		
+		static sortByRate() {
+			model.sortedPopularBooks = model.allBooks.slice().sort(
+				(a, b) => a.rating > b.rating ? -1 : 1
+			);
+		};
+
+		static sortByTitles () {
+			model.allBooks.sort(
+				(a, b) => a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1
+			);
+		};
+
+		static sortByUpdate () {
+			model.sortedRecentBooks = model.allBooks.slice().sort(
+				(a, b) => a.updatedAt > b.updatedAt ? -1 : 1
+			);
+		};
+
+		static sortFreeBooks () {
+			model.sortedFreeBooks = model.allBooks.filter(element => element.cost === 0);
+		};
 	}
 
-	model.Book.sortByRate = () => {
-		model.sortedPopularBooks = model.allBooks.slice().sort(
-			(a, b) => {
-				if (a.rating > b.rating) {
-					return -1;
-				} else {
-					return 1;
-				}
-			}
-		);
-	};
+	model.Book = Book;
 
-	model.Book.sortByTitles = () => {
-		model.allBooks.sort(
-			(a, b) => {
-				if (a.title.toLowerCase() < b.title.toLowerCase()) {
-					return -1;
-				} else {
-					return 1;
-				}
-			}
-		);
-	};
-
-	model.Book.sortByUpdate = () => {
-		model.sortedRecentBooks = model.allBooks.slice().sort(
-			(a, b) => {
-				if (a.updatedAt > b.updatedAt) {	
-					return -1;
-				} else {
-					return 1;
-				}
-			}
-		);
-	};
-
-	model.Book.sortFreeBooks = () => {
-		model.sortedFreeBooks = [];
-		model.allBooks.slice().forEach(
-			element => {
-				if (element.cost === 0) model.sortedFreeBooks.push(element);
-			}
-		)
-	};
-
-	model.History = class History {
+	class History {
 	    constructor(book) {
 	        this.book = {};
 	        this.date = Date.now();
@@ -71,12 +50,10 @@ function Model() {
 	    }
 	}
 
+	model.History = History;
+
 	model.addBook = book => model.allBooks.push(book);
 	model.addHistory = history => model.allHistory.push(history);
-
-	model.booksUrl = 'https://rsu-library-api.herokuapp.com/books';
-	model.filtersUrl = 'https://rsu-library-api.herokuapp.com/filters';
-	model.categoriesUrl = 'https://rsu-library-api.herokuapp.com/categories';
 
 	return model;
 }
