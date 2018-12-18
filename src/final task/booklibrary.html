@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="keywords" content="">
+  <meta name="author" content="Ауст Д.С.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="https://img.icons8.com/color/50/000000/pennywise.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Ruda" rel="stylesheet">
+  <title>Home page</title>
+</head>
+<body>
+  	<header>
+  			<a href="#" class="header_account">John Doe</a>
+  			<a href="#" class="header_links">Our support</a>
+  			<a href="#" class="header_links">Help Center</a>
+  	</header>
+  	<main>
+  		<aside>
+			<div class="add_book">
+				<button>ADD A BOOK</button>
+			</div>
+  			<div class="wrapper_pages">	
+  				<ul class="pages">
+  					<li><a href="">Now Reading</a></li>
+  					<li class="selected"><a href="">Browse</a></li>
+  					<li><a href="">Buy Books</a></li>
+  					<li><a href="">Favourite books</a></li>
+  					<li><a href="">Wishlist</a></li>
+  					<li><a href="">History</a></li>
+  				</ul>
+  			</div>
+  			<div class="wrapper_types">
+  				<ul class="types"></ul>	
+  			</div>
+  			<div class="wrapper_history">
+  				<ul class="history">
+  				</ul>	
+  			</div>
+  		</aside>
+  		<div class="content">
+  			<div class="content_header">
+	  			<h1>Browse Available Books</h1>
+	  			<div class="wrapper_menu">
+	  				<ul class="menu"></ul>
+	  				<input type="search" class="search" placeholder="Enter Keywords">
+	  			</div>
+	  		</div>
+			<div id="wrapperbooks">
+			</div>
+  		</div>
+  	</main>
+  		  	<footer>
+  		<div class="quest"></div>
+  		<div class="settings"></div>
+  	</footer>
+    <script src="src/utils/utils.js"></script>
+    <script src="src/model/model.js"></script>
+    <script src="src/controller/controller.js"></script>
+    <script src="src/view/view.js"></script>
+    <script src="src/app.js"></script>
+</body>
+</html>
